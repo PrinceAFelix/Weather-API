@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script defer src="node_modules/swup/dist/swup.min.js"></script>
+    <script src="https://kit.fontawesome.com/c55688b3be.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script src="./javascript.js" defer></script>
+
+    <title>Weather API</title>
+</head>
+<body>
+    <div class="weather">
+
+        <div class="searchContainer" >
+            <button id="searchBtn" type='button'>
+                <i class="fas fa-search" style="color: white" ></i>
+            </button>
+            <input autocomplete="off" class="searchField" type="text" name="loc" id="citySearched" placeholder="Search"  >
+        </div>
+
+        <div class="weatherInfo">
+            <h1 class="city" id="location">- -</h1>
+            <div class="temp" id="temp"></div>
+            <div class="description"></div>
+            <div class="low-high-description">
+                <div class="max"></div> 
+                <div class="min"></div>
+            </div>
+        </div>
+
+        <div class="futureWeather" style="--width: var(--wth-80); --heigth: var(--hgt-200); --margin: var(--mrg-3)">  
+            <h3 class="weather-msg">Weather message information test</h3>
+            <hr style="width: 300%">
+
+            
+            <div class="future-forecast">
+                <h3 id="forecast-time1"></h3>
+                <img src="" alt="" id="weather-icon1">
+                <h3 id="weather1"></h3>
+            </div>
+            
+            
+            <div class="future-forecast">
+                <h3 id="forecast-time2"></h3>
+                <img src="" alt="" id="weather-icon2">
+                <h3 id="weather2"></h3>
+            </div>
+            
+            
+            <div class="future-forecast">
+                <h3 id="forecast-time3"></h3>
+                <img src="" alt="" id="weather-icon3">
+                <h3 id="weather3"></h3>
+            </div>
+            
+            
+            <div class="future-forecast">
+                <h3 id="forecast-time4"></h3>
+                <img src="" alt="" id="weather-icon4">
+                <h3 id="weather4"></h3>
+            </div>
+            
+            
+            <div class="future-forecast">
+                <h3 id="forecast-time5"></h3>
+                <img src="" alt="" id="weather-icon5">
+                <h3 id="weather5"></h3>
+            </div>
+            
+            
+            <div class="future-forecast">
+                <h3 id="forecast-time6"></h3>
+                <img src="" alt="" id="weather-icon6">
+                <h3 id="weather6"></h3>
+            </div>
+            
+            
+            <div class="future-forecast">
+                <h3 id="forecast-time7"></h3>
+                <img src="" alt="" id="weather-icon7">
+                <h3 id="weather7"></h3>
+            </div>
+
+            
+
+            <div class="future-forecast">
+                <h3 id="forecast-time8"></h3>
+                <img src="" alt="" id="weather-icon8">
+                <h3 id="weather8"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time9"></h3>
+                <img src="" alt="" id="weather-icon9">
+                <h3 id="weather9"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time10"></h3>
+                <img src="" alt="" id="weather-icon10">
+                <h3 id="weather10"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time11"></h3>
+                <img src="" alt="" id="weather-icon11">
+                <h3 id="weather11"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time12"></h3>
+                <img src="" alt="" id="weather-icon12">
+                <h3 id="weather12"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time13"></h3>
+                <img src="" alt="" id="weather-icon13">
+                <h3 id="weather13"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time14"></h3>
+                <img src="" alt="" id="weather-icon14">
+                <h3 id="weather14"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time15"></h3>
+                <img src="" alt="" id="weather-icon15">
+                <h3 id="weather15"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time16"></h3>
+                <img src="" alt="" id="weather-icon16">
+                <h3 id="weather16"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time17"></h3>
+                <img src="" alt="" id="weather-icon17">
+                <h3 id="weather17"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time18"></h3>
+                <img src="" alt="" id="weather-icon18">
+                <h3 id="weather18"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time19"></h3>
+                <img src="" alt="" id="weather-icon19">
+                <h3 id="weather19"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time20"></h3>
+                <img src="" alt="" id="weather-icon20">
+                <h3 id="weather20"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time21"></h3>
+                <img src="" alt="" id="weather-icon21">
+                <h3 id="weather21"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time22"></h3>
+                <img src="" alt="" id="weather-icon22">
+                <h3 id="weather22"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time23"></h3>
+                <img src="" alt="" id="weather-icon23">
+                <h3 id="weather23"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time24"></h3>
+                <img src="" alt="" id="weather-icon24">
+                <h3 id="weather24"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time25"></h3>
+                <img src="" alt="" id="weather-icon25">
+                <h3 id="weather25"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time26"></h3>
+                <img src="" alt="" id="weather-icon26">
+                <h3 id="weather26"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time27"></h3>
+                <img src="" alt="" id="weather-icon27">
+                <h3 id="weather27"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time28"></h3>
+                <img src="" alt="" id="weather-icon28">
+                <h3 id="weather28"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time29"></h3>
+                <img src="" alt="" id="weather-icon29">
+                <h3 id="weather29"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time30"></h3>
+                <img src="" alt="" id="weather-icon30">
+                <h3 id="weather30"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time31"></h3>
+                <img src="" alt="" id="weather-icon31">
+                <h3 id="weather31"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time32"></h3>
+                <img src="" alt="" id="weather-icon32">
+                <h3 id="weather32"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time33"></h3>
+                <img src="" alt="" id="weather-icon33">
+                <h3 id="weather33"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time34"></h3>
+                <img src="" alt="" id="weather-icon34">
+                <h3 id="weather34"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time35"></h3>
+                <img src="" alt="" id="weather-icon35">
+                <h3 id="weather35"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time36"></h3>
+                <img src="" alt="" id="weather-icon36">
+                <h3 id="weather36"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time37"></h3>
+                <img src="" alt="" id="weather-icon37">
+                <h3 id="weather37"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time38"></h3>
+                <img src="" alt="" id="weather-icon38">
+                <h3 id="weather38"></h3>
+            </div>
+
+
+            <div class="future-forecast">
+                <h3 id="forecast-time39"></h3>
+                <img src="" alt="" id="weather-icon39">
+                <h3 id="weather39"></h3>
+            </div>
+            
+        </div>
+        
+        <div class="container">
+            <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)">
+                <img id="box-img" src="/images/Windy.png" alt="Windy" class="windy">
+                <div class="boxTitle">WIND</div>
+                <div class="middle-info-container" style="--left: var(--lft-45)">
+                    <div class="middle-info">
+                        <div class="windSpeed" id="box-content"></div>
+                        <h2 id="speedLabel"></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)"> 
+                <img id="box-img" src="/images/Temperature.png" alt="Temp" class="temperature">
+                <div class="boxTitle">
+                    <h4>FEELS LIKE</h4>
+                </div>
+           
+                <div class="info-container">
+                    <div class="feels-like-temp" id="box-content"></div>
+                    <div class="flt-msg" id="bottom-info"></div>
+                </div>
+            </div>
+            <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)"> 
+                <img id="box-img" src="/images/Humidity.png" alt="Humid" class="humidity">
+                <div class="boxTitle">HUMIDITY</div>
+                <div class="info-container">
+                    <div class="humid" id="box-content"></div>
+                    <div class="dew-point" id="bottom-info"></div>
+                </div>
+            </div>
+            <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)"> 
+                <img id="box-img" src="/images/Visibility.png" alt="Visibility" class="visibility">
+                <div class="boxTitle">VISIBILITY</div>
+                <div class="info-container">
+                    <div class="vsblty" id="box-content"></div>
+                    <div id="bottom-info"></div>
+                </div>
+            </div>
+            <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)">
+                <img id="box-img" src="/images/Pressure.png" alt="Pressure" class="pressure">
+                <div class="boxTitle">PRESSURE</div>
+                <div class="middle-info-container " style="--left: var(--lft-15)">
+                    <div class="middle-info">
+                        <i class="fa-solid fa-arrow-down" style="font-size: 50px"></i>
+                        <div class="hPa" id="box-content"></div>
+                        <h2 id="hpaLabel"></h2>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)">
+                <img id="box-img" src="/images/Sunset.png" alt="Sunset" class="sunset">
+                <div class="boxTitle">SUNSET</div>
+                <div class="info-container">
+                    <div class="sunsetTime" id="box-content"></div>
+                    <div class="sunriseTime" id="bottom-info"></div>
+                </div>
+            </div>
+            <!-- <div class="futureWeather" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)"> </div>
+            <div class="futureWeather" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)"> </div>
+            <div class="futureWeather" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)"> </div> -->
+        </div>
+
+            
+        
+
+    </div>
+   
+</body>
+
+</html>
+
