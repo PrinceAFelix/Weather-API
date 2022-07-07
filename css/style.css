@@ -109,6 +109,7 @@ body {
 :root {
   --hgt-200: 200px;
   --hgt-300: 400px;
+  --hgt-500: 500px;
   --wth-80: 80%;
   --wth-150: 400px;
   --mrg-3: 3%;
@@ -142,6 +143,39 @@ body {
   text-align: center;
   justify-content: center;
   padding-right: 5%;
+}
+
+.weather .futureWeather .five-day-forecast {
+  display: flex;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.day-label {
+  text-align: left;
+  height: auto;
+  width: 120px;
+}
+
+.weather .futureWeather .five-day-forecast img {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 5px;
+  /* margin: 0px 100px 0px 100px; */
+  justify-content: space-between;
+}
+
+.temp-range {
+  height: 5px;
+  width: 720px;
+  border-radius: 25px;
+  background-color: hsl(0, 0%, 27%);
+  position: relative;
+  top: 15px;
 }
 
 .weather .futureWeather .boxTitle {

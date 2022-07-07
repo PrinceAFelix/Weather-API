@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script defer src="node_modules/swup/dist/swup.min.js"></script>
@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-    <script src="./javascript.js" defer></script>
+    
 
     <title>Weather API</title>
 </head>
@@ -37,10 +37,15 @@
         </div>
 
         <div class="futureWeather" style="--width: var(--wth-80); --heigth: var(--hgt-200); --margin: var(--mrg-3)">  
-            <h3 class="weather-msg">Weather message information test</h3>
-            <hr style="width: 300%">
+            <h3 class="weather-msg">TODO::Weather message information test</h3>
+            <hr style="width: 305%">
 
-            
+            <div class="future-forecast">
+                <h3 id="forecast-time0"></h3>
+                <img src="" alt="" id="weather-icon0">
+                <h3 id="weather0"></h3>
+            </div>
+
             <div class="future-forecast">
                 <h3 id="forecast-time1"></h3>
                 <img src="" alt="" id="weather-icon1">
@@ -315,10 +320,68 @@
             </div>
             
         </div>
+
+        <div class="futureWeather" style="--width: var(--wth-80); --heigth: var(--hgt-500); --margin: var(--mrg-3)">
+            <h3 class="weather-msg">TODO::5-DAY FORECAST</h3>
+            <hr style="width: 100%">
+
+            <div class="five-day-forecast">
+                <h3 class="day-label" id="day-label1"></h3>
+                <img src="" alt="" id="forecast-weather-icon1">
+                <h3 id="low-label1"></h3>
+                <div class="temp-range"></div>
+                <h3 id="high-label1"></h3>
+            </div>
+
+
+            <hr style="width: 100%">
+
+            <div class="five-day-forecast">
+                <h3 class="day-label" id="day-label2"></h3>
+                <img src="" alt="" id="forecast-weather-icon2">
+                <h3 id="low-label2">12°</h3>
+                <div class="temp-range"></div>
+                <h3 id="high-label2">24°</h3>
+            </div>
+
+
+            <hr style="width: 100%">
+
+            <div class="five-day-forecast">
+                <h3 class="day-label" id="day-label3"></h3>
+                <img src="" alt="" id="forecast-weather-icon3">
+                <h3 id="low-label3">12°</h3>
+                <div class="temp-range"></div>
+                <h3 id="high-label3">24°</h3>
+            </div>
+
+
+            <hr style="width: 100%">
+
+            <div class="five-day-forecast">
+                <h3 class="day-label" id="day-label4"></h3>
+                <img src="" alt="" id="forecast-weather-icon4">
+                <h3 id="low-label4">12°</h3>
+                <div class="temp-range"></div>
+                <h3 id="high-label4">24°</h3>
+            </div>
+
+
+            <hr style="width: 100%">
+
+            <div class="five-day-forecast">
+                <h3 class="day-label" id="day-label5"></h3>
+                <img src="" alt="" id="forecast-weather-icon5">
+                <h3 id="low-label">12°</h3>
+                <div class="temp-range"></div>
+                <h3 id="high-label">24°</h3>
+            </div>
+
+        </div>
         
         <div class="container">
             <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)">
-                <img id="box-img" src="/images/Windy.png" alt="Windy" class="windy">
+                <img id="box-img" src="/icons/Windy.png" alt="Windy" class="windy">
                 <div class="boxTitle">WIND</div>
                 <div class="middle-info-container" style="--left: var(--lft-45)">
                     <div class="middle-info">
@@ -328,7 +391,7 @@
                 </div>
             </div>
             <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)"> 
-                <img id="box-img" src="/images/Temperature.png" alt="Temp" class="temperature">
+                <img id="box-img" src="/icons/Temperature.png" alt="Temp" class="temperature">
                 <div class="boxTitle">
                     <h4>FEELS LIKE</h4>
                 </div>
@@ -339,7 +402,7 @@
                 </div>
             </div>
             <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)"> 
-                <img id="box-img" src="/images/Humidity.png" alt="Humid" class="humidity">
+                <img id="box-img" src="/icons/Humidity.png" alt="Humid" class="humidity">
                 <div class="boxTitle">HUMIDITY</div>
                 <div class="info-container">
                     <div class="humid" id="box-content"></div>
@@ -347,7 +410,7 @@
                 </div>
             </div>
             <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)"> 
-                <img id="box-img" src="/images/Visibility.png" alt="Visibility" class="visibility">
+                <img id="box-img" src="/icons/Visibility.png" alt="Visibility" class="visibility">
                 <div class="boxTitle">VISIBILITY</div>
                 <div class="info-container">
                     <div class="vsblty" id="box-content"></div>
@@ -355,7 +418,7 @@
                 </div>
             </div>
             <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)">
-                <img id="box-img" src="/images/Pressure.png" alt="Pressure" class="pressure">
+                <img id="box-img" src="/icons/Pressure.png" alt="Pressure" class="pressure">
                 <div class="boxTitle">PRESSURE</div>
                 <div class="middle-info-container " style="--left: var(--lft-15)">
                     <div class="middle-info">
@@ -368,7 +431,7 @@
 
             </div>
             <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)">
-                <img id="box-img" src="/images/Sunset.png" alt="Sunset" class="sunset">
+                <img id="box-img" src="/icons/Sunset.png" alt="Sunset" class="sunset">
                 <div class="boxTitle">SUNSET</div>
                 <div class="info-container">
                     <div class="sunsetTime" id="box-content"></div>
@@ -384,7 +447,7 @@
         
 
     </div>
-   
+    <script type="module" src="js/javascript.js" defer></script>
 </body>
 
 </html>
