@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="/icons/weather.webp">
+    <link rel="icon" type="image/png" href="/icons/weather.webp">
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -14,11 +16,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     
 
-    <title>Weather API</title>
+    <title>Weather</title>
 </head>
-<body>
+<body state="">
     <div class="weather">
-
         <div class="searchContainer" >
             <button id="searchBtn" type='button'>
                 <i class="fas fa-search" style="color: white" ></i>
@@ -37,345 +38,18 @@
         </div>
 
         <div class="futureWeather" style="--width: var(--wth-80); --heigth: var(--hgt-200); --margin: var(--mrg-3)">  
-            <h3 class="weather-msg">TODO::Weather message information test</h3>
-            <hr style="width: 305%">
+            <h3 class="weather-msg">Hourly Forecast</h3>
+            <hr style="width: 155%">
 
-            <div class="future-forecast">
-                <h3 id="forecast-time0"></h3>
-                <img src="" alt="" id="weather-icon0">
-                <h3 id="weather0"></h3>
-            </div>
+            <div class="hourly-forecast"></div>
 
-            <div class="future-forecast">
-                <h3 id="forecast-time1"></h3>
-                <img src="" alt="" id="weather-icon1">
-                <h3 id="weather1"></h3>
-            </div>
-            
-            
-            <div class="future-forecast">
-                <h3 id="forecast-time2"></h3>
-                <img src="" alt="" id="weather-icon2">
-                <h3 id="weather2"></h3>
-            </div>
-            
-            
-            <div class="future-forecast">
-                <h3 id="forecast-time3"></h3>
-                <img src="" alt="" id="weather-icon3">
-                <h3 id="weather3"></h3>
-            </div>
-            
-            
-            <div class="future-forecast">
-                <h3 id="forecast-time4"></h3>
-                <img src="" alt="" id="weather-icon4">
-                <h3 id="weather4"></h3>
-            </div>
-            
-            
-            <div class="future-forecast">
-                <h3 id="forecast-time5"></h3>
-                <img src="" alt="" id="weather-icon5">
-                <h3 id="weather5"></h3>
-            </div>
-            
-            
-            <div class="future-forecast">
-                <h3 id="forecast-time6"></h3>
-                <img src="" alt="" id="weather-icon6">
-                <h3 id="weather6"></h3>
-            </div>
-            
-            
-            <div class="future-forecast">
-                <h3 id="forecast-time7"></h3>
-                <img src="" alt="" id="weather-icon7">
-                <h3 id="weather7"></h3>
-            </div>
-
-            
-
-            <div class="future-forecast">
-                <h3 id="forecast-time8"></h3>
-                <img src="" alt="" id="weather-icon8">
-                <h3 id="weather8"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time9"></h3>
-                <img src="" alt="" id="weather-icon9">
-                <h3 id="weather9"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time10"></h3>
-                <img src="" alt="" id="weather-icon10">
-                <h3 id="weather10"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time11"></h3>
-                <img src="" alt="" id="weather-icon11">
-                <h3 id="weather11"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time12"></h3>
-                <img src="" alt="" id="weather-icon12">
-                <h3 id="weather12"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time13"></h3>
-                <img src="" alt="" id="weather-icon13">
-                <h3 id="weather13"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time14"></h3>
-                <img src="" alt="" id="weather-icon14">
-                <h3 id="weather14"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time15"></h3>
-                <img src="" alt="" id="weather-icon15">
-                <h3 id="weather15"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time16"></h3>
-                <img src="" alt="" id="weather-icon16">
-                <h3 id="weather16"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time17"></h3>
-                <img src="" alt="" id="weather-icon17">
-                <h3 id="weather17"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time18"></h3>
-                <img src="" alt="" id="weather-icon18">
-                <h3 id="weather18"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time19"></h3>
-                <img src="" alt="" id="weather-icon19">
-                <h3 id="weather19"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time20"></h3>
-                <img src="" alt="" id="weather-icon20">
-                <h3 id="weather20"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time21"></h3>
-                <img src="" alt="" id="weather-icon21">
-                <h3 id="weather21"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time22"></h3>
-                <img src="" alt="" id="weather-icon22">
-                <h3 id="weather22"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time23"></h3>
-                <img src="" alt="" id="weather-icon23">
-                <h3 id="weather23"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time24"></h3>
-                <img src="" alt="" id="weather-icon24">
-                <h3 id="weather24"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time25"></h3>
-                <img src="" alt="" id="weather-icon25">
-                <h3 id="weather25"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time26"></h3>
-                <img src="" alt="" id="weather-icon26">
-                <h3 id="weather26"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time27"></h3>
-                <img src="" alt="" id="weather-icon27">
-                <h3 id="weather27"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time28"></h3>
-                <img src="" alt="" id="weather-icon28">
-                <h3 id="weather28"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time29"></h3>
-                <img src="" alt="" id="weather-icon29">
-                <h3 id="weather29"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time30"></h3>
-                <img src="" alt="" id="weather-icon30">
-                <h3 id="weather30"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time31"></h3>
-                <img src="" alt="" id="weather-icon31">
-                <h3 id="weather31"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time32"></h3>
-                <img src="" alt="" id="weather-icon32">
-                <h3 id="weather32"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time33"></h3>
-                <img src="" alt="" id="weather-icon33">
-                <h3 id="weather33"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time34"></h3>
-                <img src="" alt="" id="weather-icon34">
-                <h3 id="weather34"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time35"></h3>
-                <img src="" alt="" id="weather-icon35">
-                <h3 id="weather35"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time36"></h3>
-                <img src="" alt="" id="weather-icon36">
-                <h3 id="weather36"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time37"></h3>
-                <img src="" alt="" id="weather-icon37">
-                <h3 id="weather37"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time38"></h3>
-                <img src="" alt="" id="weather-icon38">
-                <h3 id="weather38"></h3>
-            </div>
-
-
-            <div class="future-forecast">
-                <h3 id="forecast-time39"></h3>
-                <img src="" alt="" id="weather-icon39">
-                <h3 id="weather39"></h3>
-            </div>
-            
         </div>
 
         <div class="futureWeather" style="--width: var(--wth-80); --heigth: var(--hgt-500); --margin: var(--mrg-3)">
-            <h3 class="weather-msg">TODO::5-DAY FORECAST</h3>
+            <h3 class="weather-msg">5-DAY FORECAST</h3>
             <hr style="width: 100%">
 
-            <div class="five-day-forecast">
-                <h3 class="day-label" id="day-label1"></h3>
-                <img src="" alt="" id="forecast-weather-icon1">
-                <h3 id="low-label1"></h3>
-                <div class="temp-range"></div>
-                <h3 id="high-label1"></h3>
-            </div>
-
-
-            <hr style="width: 100%">
-
-            <div class="five-day-forecast">
-                <h3 class="day-label" id="day-label2"></h3>
-                <img src="" alt="" id="forecast-weather-icon2">
-                <h3 id="low-label2">12°</h3>
-                <div class="temp-range"></div>
-                <h3 id="high-label2">24°</h3>
-            </div>
-
-
-            <hr style="width: 100%">
-
-            <div class="five-day-forecast">
-                <h3 class="day-label" id="day-label3"></h3>
-                <img src="" alt="" id="forecast-weather-icon3">
-                <h3 id="low-label3">12°</h3>
-                <div class="temp-range"></div>
-                <h3 id="high-label3">24°</h3>
-            </div>
-
-
-            <hr style="width: 100%">
-
-            <div class="five-day-forecast">
-                <h3 class="day-label" id="day-label4"></h3>
-                <img src="" alt="" id="forecast-weather-icon4">
-                <h3 id="low-label4">12°</h3>
-                <div class="temp-range"></div>
-                <h3 id="high-label4">24°</h3>
-            </div>
-
-
-            <hr style="width: 100%">
-
-            <div class="five-day-forecast">
-                <h3 class="day-label" id="day-label5"></h3>
-                <img src="" alt="" id="forecast-weather-icon5">
-                <h3 id="low-label">12°</h3>
-                <div class="temp-range"></div>
-                <h3 id="high-label">24°</h3>
-            </div>
+            <div class="daily-forecast"></div>
 
         </div>
         

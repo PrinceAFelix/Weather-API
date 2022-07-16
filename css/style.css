@@ -11,7 +11,6 @@ hr {
 
 body {
   background-color: rgb(33, 117, 179);
-
   overflow: auto;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -173,9 +172,8 @@ body {
   height: 5px;
   width: 720px;
   border-radius: 25px;
-  background-color: hsl(0, 0%, 27%);
+  background-image: linear-gradient(to right, cyan, green, yellow, orange);
   position: relative;
-  top: 15px;
 }
 
 .weather .futureWeather .boxTitle {
@@ -243,4 +241,95 @@ body {
 
 .weather-msg {
   color: white;
+}
+
+/** BACKGROUND **/
+
+/* DAY */
+[state="dclear"] {
+  background-color: rgb(33, 117, 179);
+  background: url("/themes/clear.png"), url("/themes/cloud-clear.png");
+  background-position: top center, bottom center;
+  background-repeat: repeat-x, repeat-x;
+  animation: clouds 5000s linear infinite;
+  background-size: auto 600px, auto 1980px;
+}
+
+[state="dclouds"] {
+  background: rgb(33, 117, 179) url("/themes/cloud.png") bottom center repeat-x;
+  animation: clouds 1000s linear infinite;
+  background-position: center;
+  background-size: auto 800px;
+}
+
+[state="drain"] {
+  background: rgb(33, 117, 179) url("/themes/rain-clouds.png") bottom center
+    repeat-x;
+  animation: clouds 1000s linear infinite;
+  background-position: center;
+  background-size: auto 800px;
+}
+
+[state="dfog"] {
+  background: rgb(33, 117, 179) url("/themes/fog.png") bottom center repeat-x;
+  animation: clouds 1000s linear infinite;
+  background-position: center;
+  background-size: auto 800px;
+}
+
+/* NIGHT
+rgb(34,36,60)
+*/
+
+[state="nclear"] {
+  background-color: rgb(34, 36, 60);
+  background: url("/themes/stars.png"), url("/themes/cloud-clear.png");
+  background-position: top center, bottom center;
+  background-repeat: repeat-x, repeat-x;
+  animation: clouds 5000s linear infinite;
+  background-size: auto 600px, auto 1980px;
+}
+
+[state="nclouds"] {
+  background-color: rgb(34, 36, 60);
+  background: url("/themes/stars.png"), url("/themes/cloud-clear.png");
+  background-position: top center, bottom center;
+  background-repeat: repeat, repeat-x;
+  animation: clouds 2500s linear infinite;
+  background-size: 2000px 1375px, auto 1080px;
+}
+
+[state="nrain"] {
+  background-color: rgb(34, 36, 60);
+  background: url("/themes/rain.png");
+  animation: rain 0.3s linear infinite;
+  background-repeat: repeat-y;
+  background-size: 3033px 1640px;
+}
+
+[state="nfog"] {
+  background-color: rgb(34, 36, 60);
+  background: url("/themes/fog.png");
+  background-position: top center;
+  background-repeat: repeat-x;
+  animation: clouds 200s linear infinite;
+  background-size: auto auto;
+}
+
+@keyframes clouds {
+  from {
+    background-position-y: -100px;
+  }
+  to {
+    background-position: -10000px 0;
+  }
+}
+
+@keyframes rain {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 0% 100%;
+  }
 }
