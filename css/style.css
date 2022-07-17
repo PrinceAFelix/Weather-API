@@ -396,6 +396,7 @@ rgb(34,36,60)
 
   .weather .futureWeather .daily-container .daily-forecast .five-day-forecast {
     font-size: 12px;
+    font-weight: bold;
   }
 
   .five-day-forecast img {

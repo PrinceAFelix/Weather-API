@@ -20,13 +20,14 @@
 </head>
 <body state="">
     <div class="weather">
-        <div class="searchContainer" >
-            <button id="searchBtn" type='button'>
-                <i class="fas fa-search" style="color: white" ></i>
-            </button>
-            <input autocomplete="off" class="searchField" type="text" name="loc" id="citySearched" placeholder="Search">
-        </div>
-
+        <form id="search-form" autocomplete="off">
+            <div class="searchContainer" >
+                <button id="searchBtn" type='button'>
+                    <i class="fas fa-search" style="color: white" ></i>
+                </button>
+                <input autocomplete="off" class="searchField" type="text" name="loc" id="citySearched" placeholder="Search">
+            </div>
+        </form>
         <div class="weatherInfo">
             <h1 class="city" id="location">- -</h1>
             <div class="temp" id="temp"></div>

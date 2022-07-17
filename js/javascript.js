@@ -17,8 +17,16 @@ const main = {
     locKey: 'pk.6eff11d2dd5c4fbf4f82d3ed41476434',
     init: () =>{
         main.getCoor()
+        
+        document.getElementById('search-form')
+        .addEventListener('submit', async function (ev) {
+            ev.preventDefault()
+            main.search()
+        })
+
     },
     fetchWeather: async (city) => {
+        console.log("Location: " + city)
         const data = await getCurrentWeather(city);
         return main.displayWeather(data);
     },
@@ -44,6 +52,7 @@ const main = {
         sunsetDt = new Date(sunset*1000);
         sunriseDt = new Date(sunrise*1000);
 
+        console.log(data)
 
         let des = data.weather[0].main.toLowerCase();
 
@@ -84,7 +93,6 @@ const main = {
         document.querySelector(".sunriseTime").innerHTML = 'Sunrise: ' + main.convertTime(sunriseDt, false) + 'AM';
         document.querySelector(".windSpeed").innerHTML = Math.round((speed * 3.6)) ;
         document.querySelector(".hPa").innerHTML = pressure.toLocaleString();
-        document.getElementById("hpaLabel").innerHTML = "hPa";
     },
     displayFutureWeather: async function (data) {
         var iconAvg = [];
@@ -280,6 +288,7 @@ const main = {
     },
     search: async () => {
         var city = document.querySelector(".searchField").value
+        console.log("Searched: "+ city)
         const data = await getCityCoordinates(city);
         await main.fetchWeather(city);
         main.getLatLon(data)
@@ -347,17 +356,5 @@ const main = {
 
 
 }
-
-document.querySelector(".searchContainer #searchBtn").addEventListener("click", function() {
-    main.search()
-})
-
-document.querySelector(".searchField").addEventListener("keypress", function(event) {
-    if(event.key == "Enter") {
-        console.log("njcndjecn")
-        main.search()
-    } 
-})
-
 
 document.addEventListener('DOMContentLoaded', main.init)
