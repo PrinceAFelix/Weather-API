@@ -37,19 +37,23 @@
             </div>
         </div>
 
-        <div class="futureWeather" style="--width: var(--wth-80); --heigth: var(--hgt-200); --margin: var(--mrg-3)">  
-            <h3 class="weather-msg">Hourly Forecast</h3>
-            <hr style="width: 155%">
-
-            <div class="hourly-forecast"></div>
-
+        <div class="futureWeather" id="hourly" style="--width: var(--wth-80); --heigth: var(--hgt-200); --margin: var(--mrg-3)">  
+            <div class="hourly-container">
+                <h3 class="weather-msg">Hourly Forecast</h3>
+                <hr id=line01>
+    
+                <div class="hourly-forecast"></div>
+            </div>
         </div>
 
-        <div class="futureWeather" style="--width: var(--wth-80); --heigth: var(--hgt-500); --margin: var(--mrg-3)">
-            <h3 class="weather-msg">5-DAY FORECAST</h3>
-            <hr style="width: 100%">
+        <div class="futureWeather" id="daily" style="--width: var(--wth-80); --heigth: var(--hgt-500); --margin: var(--mrg-3)">
 
-            <div class="daily-forecast"></div>
+            <div class="daily-container">
+                <h3 class="weather-msg">5-DAY FORECAST</h3>
+                <hr style="width: 100%">
+    
+                <div class="daily-forecast"></div>
+            </div>
 
         </div>
         
@@ -57,10 +61,9 @@
             <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)">
                 <img id="box-img" src="/icons/Windy.png" alt="Windy" class="windy">
                 <div class="boxTitle">WIND</div>
-                <div class="middle-info-container" style="--left: var(--lft-45)">
+                <div class="info-container">
                     <div class="middle-info">
                         <div class="windSpeed" id="box-content"></div>
-                        <h2 id="speedLabel"></h2>
                     </div>
                 </div>
             </div>
@@ -94,12 +97,13 @@
             <div class="futureWeather" id="infoBox" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)">
                 <img id="box-img" src="/icons/Pressure.png" alt="Pressure" class="pressure">
                 <div class="boxTitle">PRESSURE</div>
-                <div class="middle-info-container " style="--left: var(--lft-15)">
-                    <div class="middle-info">
+                <div class="info-container">
+                    <div class="hPa" id="box-content"></div>
+                    <!-- <div class="middle-info">
                         <i class="fa-solid fa-arrow-down" style="font-size: 50px"></i>
                         <div class="hPa" id="box-content"></div>
                         <h2 id="hpaLabel"></h2>
-                    </div>
+                    </div> -->
                     
                 </div>
 

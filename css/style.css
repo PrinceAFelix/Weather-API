@@ -19,7 +19,7 @@ body {
   padding-bottom: 50px;
 }
 
-.weather .futureWeather #box-img {
+#box-img {
   border: 0;
   -webkit-filter: brightness(0) invert(1);
   filter: brightness(0) invert(1);
@@ -45,6 +45,8 @@ body {
 .weather .searchContainer .searchField {
   height: 50px;
   width: 350px;
+  position: relative;
+  top: 5px;
   border-radius: 25px;
   border: none;
   outline: none;
@@ -153,13 +155,17 @@ body {
   align-items: center;
 }
 
+#daily {
+  height: 500px;
+}
+
 .day-label {
   text-align: left;
   height: auto;
   width: 120px;
 }
 
-.weather .futureWeather .five-day-forecast img {
+.five-day-forecast img {
   width: 40px;
   height: 40px;
   position: relative;
@@ -176,7 +182,7 @@ body {
   position: relative;
 }
 
-.weather .futureWeather .boxTitle {
+.boxTitle {
   font-size: 24px;
   font-weight: bold;
   color: white;
@@ -186,8 +192,8 @@ body {
 
 .weather .container {
   display: grid;
-  grid-template-columns: auto auto auto;
   row-gap: 50px;
+  grid-template-columns: auto auto auto;
   margin-left: 100px;
   margin-right: 100px;
   margin-top: 50px;
@@ -210,7 +216,7 @@ body {
   font-size: 70px;
 }
 
-.weather .container #infoBox .middle-info-container {
+.middle-info-container {
   color: white;
   text-align: center;
   height: 400px;
@@ -218,7 +224,7 @@ body {
   position: relative;
 }
 
-.weather .container #infoBox .middle-info-container .middle-info {
+.middle-info-container .middle-info {
   position: relative;
   top: 45%;
   left: var(--left);
@@ -226,11 +232,6 @@ body {
   display: grid;
   align-items: center;
   justify-content: center;
-}
-
-.weather .container #infoBox .middle-info-container .hPa {
-  font-size: 50px;
-  padding: 10px;
 }
 
 .weather .container #infoBox .info-container #bottom-info {
@@ -241,6 +242,11 @@ body {
 
 .weather-msg {
   color: white;
+}
+
+/*** LINE ***/
+#line01 {
+  width: 155%;
 }
 
 /** BACKGROUND **/
@@ -331,5 +337,90 @@ rgb(34,36,60)
   }
   to {
     background-position: 0% 100%;
+  }
+}
+@media all and (max-width: 420px) {
+  .weather .searchContainer .searchField {
+    width: 300px;
+  }
+  .weather .weatherInfo {
+    margin-top: 15%;
+    margin-bottom: 10%;
+  }
+  .weather .weatherInfo .city {
+    font-size: 30px;
+  }
+  .weather .weatherInfo .temp {
+    font-size: 80px;
+  }
+  .weather .weatherInfo .description {
+    font-size: 15px;
+  }
+  .weather .weatherInfo .low-high-description {
+    font-size: 15px;
+  }
+
+  .weather .futureWeather .hourly-container {
+    font-size: 12px;
+  }
+
+  .weather .futureWeather .hourly-container .hourly-forecast .future-forecast {
+    font-size: 12px;
+    margin-right: 20px;
+  }
+
+  #line01 {
+    width: 515%;
+  }
+
+  .weather .futureWeather .daily-container {
+    font-size: 12px;
+  }
+
+  .weather .futureWeather .daily-container .daily-forecast .five-day-forecast {
+    font-size: 12px;
+  }
+
+  .five-day-forecast img {
+    width: 20px;
+    height: 20px;
+    margin-right: 30px;
+  }
+
+  .temp-range {
+    width: 100px;
+  }
+
+  #daily {
+    height: 400px;
+  }
+
+  .weather .container {
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+    margin-left: 35px;
+    margin-right: 100px;
+  }
+
+  .weather .container #infoBox {
+    width: 160px;
+    height: 180px;
+    padding: 15px;
+    overflow: hidden;
+  }
+
+  .boxTitle {
+    font-size: 8px;
+  }
+
+  #box-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  #box-content {
+    font-size: 25px;
+    position: relative;
+    bottom: 20px;
   }
 }

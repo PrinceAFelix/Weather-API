@@ -83,7 +83,6 @@ const main = {
         document.querySelector(".sunsetTime").innerHTML = main.convertTime(sunsetDt, false) + 'PM';
         document.querySelector(".sunriseTime").innerHTML = 'Sunrise: ' + main.convertTime(sunriseDt, false) + 'AM';
         document.querySelector(".windSpeed").innerHTML = Math.round((speed * 3.6)) ;
-        document.getElementById("speedLabel").innerHTML = "km/h";
         document.querySelector(".hPa").innerHTML = pressure.toLocaleString();
         document.getElementById("hpaLabel").innerHTML = "hPa";
     },
