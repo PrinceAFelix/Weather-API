@@ -4,7 +4,7 @@ import {getCurrentWeather, getFutureWeather, getCityCoordinates, createWeatherIc
 
 var sunsetDt;
 var sunriseDt;
-var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+var days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 let avg = [];
 
@@ -167,7 +167,7 @@ const main = {
 
 
         var today = new Date().getDay();
-        let minus = today;
+        var minus = today
         let isPassed = false;
         let daily =  document.querySelector(".daily-forecast");
         if (daily.querySelector('div')) daily.querySelectorAll('div').forEach(div => div.remove())
@@ -175,11 +175,11 @@ const main = {
             let div = document.createElement('div');
             div.className = 'five-day-forecast'
             let day = index == 0 ? 'Today' : days[isPassed ? (today - minus--) : today + index];
-            if(today >= 3 && days[today + index] == 'Sunday')isPassed = true;
+            if(today >= 3 && days[today + index] == 'Sunday' || today == 0 )isPassed = true;
             div.innerHTML = `<h3 class="day-label">${day}</h3>`
             div.appendChild(createWeatherIcon(item))
             div.innerHTML = 
-            div.innerHTML + `<h3>${low[index]}&#176;</h3><div class="temp-range"></div><h3>${high[index]}&#176;</h3>`
+            div.innerHTML + `<h3 id="lowTemp">${low[index]}&#176;</h3><div class="temp-range"></div><h3id="highTemp">${high[index]}&#176;</h3>`
             daily.append(div);
             let lineDiv = document.createElement('div')
             lineDiv.innerHTML = `<hr style="width: 100%">`
@@ -354,6 +354,7 @@ document.querySelector(".searchContainer #searchBtn").addEventListener("click", 
 
 document.querySelector(".searchField").addEventListener("keypress", function(event) {
     if(event.key == "Enter") {
+        console.log("njcndjecn")
         main.search()
     } 
 })

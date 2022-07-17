@@ -57,7 +57,7 @@ export function createWeatherIcon (icon) {
     let img = document.createElement('img')
     img.setAttribute(
       'src',
-      '/icons/weather-icons/' + icon + '.png'
+      'https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/icons/weather-icons/' + icon + '.png'
     )
     img.setAttribute('alt', '')
     return img

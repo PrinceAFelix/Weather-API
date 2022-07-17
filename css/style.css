@@ -56,6 +56,7 @@ body {
   font-size: 20px;
   color: white;
   font-weight: lighter;
+  z-index: 1000;
 }
 
 ::placeholder {
@@ -90,7 +91,7 @@ body {
 }
 .weather .weatherInfo .description {
   font-size: 30px;
-  font-weight: 200;
+  font-weight: bold;
 }
 
 .weather .weatherInfo .low-high-description {
@@ -100,7 +101,7 @@ body {
   text-align: center;
   justify-content: center;
   font-size: 30px;
-  font-weight: 200;
+  font-weight: bold;
 }
 
 .weather .weatherInfo .low-high-description .max {
@@ -159,6 +160,10 @@ body {
   height: 500px;
 }
 
+#lowTemp {
+  opacity: 0.5;
+}
+
 .day-label {
   text-align: left;
   height: auto;
@@ -196,7 +201,7 @@ body {
   grid-template-columns: auto auto auto;
   margin-left: 100px;
   margin-right: 100px;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .weather .container #infoBox {
@@ -234,7 +239,7 @@ body {
   justify-content: center;
 }
 
-.weather .container #infoBox .info-container #bottom-info {
+#bottom-info {
   font-size: 20px;
   margin-top: 190px;
   letter-spacing: normal;
@@ -254,7 +259,8 @@ body {
 /* DAY */
 [state="dclear"] {
   background-color: rgb(33, 117, 179);
-  background: url("/themes/clear.png"), url("/themes/cloud-clear.png");
+  background: url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/clear.png"),
+    url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/cloud-clear.png");
   background-position: top center, bottom center;
   background-repeat: repeat-x, repeat-x;
   animation: clouds 5000s linear infinite;
@@ -262,22 +268,27 @@ body {
 }
 
 [state="dclouds"] {
-  background: rgb(33, 117, 179) url("/themes/cloud.png") bottom center repeat-x;
+  background: rgb(33, 117, 179)
+    url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/cloud.png")
+    bottom center repeat-x;
   animation: clouds 1000s linear infinite;
   background-position: center;
   background-size: auto 800px;
 }
 
 [state="drain"] {
-  background: rgb(33, 117, 179) url("/themes/rain-clouds.png") bottom center
-    repeat-x;
+  background: rgb(33, 117, 179)
+    url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/rain-clouds.png")
+    bottom center repeat-x;
   animation: clouds 1000s linear infinite;
   background-position: center;
   background-size: auto 800px;
 }
 
 [state="dfog"] {
-  background: rgb(33, 117, 179) url("/themes/fog.png") bottom center repeat-x;
+  background: rgb(33, 117, 179)
+    url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/fog.png")
+    bottom center repeat-x;
   animation: clouds 1000s linear infinite;
   background-position: center;
   background-size: auto 800px;
@@ -289,7 +300,8 @@ rgb(34,36,60)
 
 [state="nclear"] {
   background-color: rgb(34, 36, 60);
-  background: url("/themes/stars.png"), url("/themes/cloud-clear.png");
+  background: url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/stars.png"),
+    url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/cloud-clear.png");
   background-position: top center, bottom center;
   background-repeat: repeat-x, repeat-x;
   animation: clouds 5000s linear infinite;
@@ -298,7 +310,8 @@ rgb(34,36,60)
 
 [state="nclouds"] {
   background-color: rgb(34, 36, 60);
-  background: url("/themes/stars.png"), url("/themes/cloud-clear.png");
+  background: url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/stars.png"),
+    url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/cloud-clear.png");
   background-position: top center, bottom center;
   background-repeat: repeat, repeat-x;
   animation: clouds 2500s linear infinite;
@@ -307,7 +320,7 @@ rgb(34,36,60)
 
 [state="nrain"] {
   background-color: rgb(34, 36, 60);
-  background: url("/themes/rain.png");
+  background: url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/rain.png");
   animation: rain 0.3s linear infinite;
   background-repeat: repeat-y;
   background-size: 3033px 1640px;
@@ -315,7 +328,7 @@ rgb(34,36,60)
 
 [state="nfog"] {
   background-color: rgb(34, 36, 60);
-  background: url("/themes/fog.png");
+  background: url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/fog.png");
   background-position: top center;
   background-repeat: repeat-x;
   animation: clouds 200s linear infinite;
@@ -339,7 +352,7 @@ rgb(34,36,60)
     background-position: 0% 100%;
   }
 }
-@media all and (max-width: 420px) {
+@media all and (max-width: 430px) {
   .weather .searchContainer .searchField {
     width: 300px;
   }
@@ -360,6 +373,10 @@ rgb(34,36,60)
     font-size: 15px;
   }
 
+  .weather .futureWeather {
+    width: 90%;
+  }
+
   .weather .futureWeather .hourly-container {
     font-size: 12px;
   }
@@ -370,7 +387,7 @@ rgb(34,36,60)
   }
 
   #line01 {
-    width: 515%;
+    width: 425%;
   }
 
   .weather .futureWeather .daily-container {
@@ -384,11 +401,13 @@ rgb(34,36,60)
   .five-day-forecast img {
     width: 20px;
     height: 20px;
-    margin-right: 30px;
+    margin-right: 80px;
   }
 
   .temp-range {
     width: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   #daily {
@@ -398,14 +417,15 @@ rgb(34,36,60)
   .weather .container {
     grid-template-columns: auto auto;
     column-gap: 10px;
-    margin-left: 35px;
-    margin-right: 100px;
+    margin-left: 20px;
+    margin-bottom: 20px;
   }
 
   .weather .container #infoBox {
-    width: 160px;
-    height: 180px;
+    width: 187px;
+    height: 187px;
     padding: 15px;
+    margin-bottom: -40px;
     overflow: hidden;
   }
 
@@ -422,5 +442,12 @@ rgb(34,36,60)
     font-size: 25px;
     position: relative;
     bottom: 20px;
+  }
+
+  #bottom-info {
+    display: block;
+    word-wrap: break-word;
+    font-size: 10px;
+    margin-top: 65px;
   }
 }
