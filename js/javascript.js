@@ -4,14 +4,15 @@ import {getCurrentWeather, getFutureWeather, getCityCoordinates, createWeatherIc
 
 var sunsetDt;
 var sunriseDt;
-var days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 let avg = [];
 
-let total = [];
 let counter = 0;
 
 let low = [], high = []
+
+let tempNow = '', descNow = ''
 
 const main = {
     locKey: 'pk.6eff11d2dd5c4fbf4f82d3ed41476434',
@@ -23,12 +24,30 @@ const main = {
             ev.preventDefault()
             main.search()
         })
+        document.getElementById('searchBtn')
+        .addEventListener('click', function (ev){
+            ev.preventDefault()
+            main.search()
+        })
+        document.getElementById('citySearched')
+        .addEventListener('keyup', function (ev) {
+            ev.preventDefault()
+            if(ev.key == 13){
+                main.search()
+            }
+        })
+
 
     },
     fetchWeather: async (city) => {
-        console.log("Location: " + city)
-        const data = await getCurrentWeather(city);
-        return main.displayWeather(data);
+        try{
+            console.log("Location: " + city)
+            const data = await getCurrentWeather(city);
+            return main.displayWeather(data);
+        }catch(e){
+            console.log(e.message)
+        }
+       
     },
     fetchFutureWeather: async (lat, lon) =>{
         const data = await getFutureWeather(lat, lon);
@@ -46,6 +65,8 @@ const main = {
         const { speed, deg } = data.wind;
 
         var celciusTemp = Math.round(temp - 273.15);
+        tempNow = celciusTemp
+        descNow = data.weather[0].main
         var minTemp = Math.round(temp_min - 273.15);
         var maxTemp = Math.round(temp_max - 273.15);
         var feelsTemp = Math.round(feels_like - 273.15);
@@ -79,6 +100,13 @@ const main = {
         for (let i = 0; i < desc.length; i++) {
             desc[i] = desc[i][0].toUpperCase() + desc[i].substr(1);
         }
+
+        
+
+
+
+
+        
         document.querySelector(".city").innerHTML = name;
         document.querySelector(".temp").innerHTML = celciusTemp + '&#176;';
         document.querySelector(".description").innerHTML = desc.join(" ");;
@@ -99,6 +127,7 @@ const main = {
         let weatherIconSRC = "";
         var time;
         var mainDesc = "";
+        
         var sun = new Sun(sunsetDt.getHours() % 12, sunriseDt.getHours() % 12);
 
 
@@ -106,10 +135,19 @@ const main = {
         if (hourly.querySelector('div')) {
             hourly.querySelectorAll('div').forEach(div => div.remove())
         }
-        
+        let div = document.createElement('div')
+        div.className = 'future-forecast'
+        div.innerHTML = `<h3>Now</h3>`
+        if (div.querySelector('img')) div.querySelector('img').remove()
+        div.appendChild(createWeatherIcon(descNow))
+        div.innerHTML = 
+        div.innerHTML + `<h3>${tempNow}&#176;</h3>`
+        hourly.append(div)
 
         let isDayPassed = false;
-
+        var today = new Date().getDay();
+        
+        var addOnce = true, showCurrent = false;
 
         //item.main.temp
         data.list.forEach((item, index) => {
@@ -141,12 +179,23 @@ const main = {
                 weatherIconSRC = mainDesc;
             }
 
-            if(time.includes("2PM")) iconAvg.push(weatherIconSRC)
+            if(time.includes("2PM") && dt.getDay() == today) {
+                iconAvg.push(weatherIconSRC)
+                addOnce = false
+                
+
+            }
+            if(time.includes("2PM") && dt.getDay() != today){
+                if(addOnce) iconAvg.push(descNow)
+                iconAvg.push(weatherIconSRC)
+                addOnce = false
+            }
+
+
 
 
             if(index <= 20){
                 div.innerHTML = `<h3>${time}</h3>`
-            
                 if (div.querySelector('img')) div.querySelector('img').remove()
                 div.appendChild(createWeatherIcon(weatherIconSRC))
                 div.innerHTML = 
@@ -174,7 +223,7 @@ const main = {
 
 
 
-        var today = new Date().getDay();
+
         var minus = today
         let isPassed = false;
         let daily =  document.querySelector(".daily-forecast");
@@ -183,9 +232,10 @@ const main = {
             let div = document.createElement('div');
             div.className = 'five-day-forecast'
             let day = index == 0 ? 'Today' : days[isPassed ? (today - minus--) : today + index];
+            // console.log(today + "+" + index + " = " + (today+index) + " = " + days[today +index])
             if(today >= 3 && days[today + index] == 'Sunday' || today == 0 )isPassed = true;
             div.innerHTML = `<h3 class="day-label">${day}</h3>`
-            div.appendChild(createWeatherIcon(item))
+            div.appendChild(createWeatherIcon(index == 0 ? iconAvg[0] : item))
             div.innerHTML = 
             div.innerHTML + `<h3 id="lowTemp">${low[index]}&#176;</h3><div class="temp-range"></div><h3id="highTemp">${high[index]}&#176;</h3>`
             daily.append(div);

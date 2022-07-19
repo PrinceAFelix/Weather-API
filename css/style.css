@@ -156,6 +156,11 @@ body {
   align-items: center;
 }
 
+.container-title {
+  display: flex;
+  position: relative;
+}
+
 #daily {
   height: 500px;
 }
@@ -378,11 +383,13 @@ rgb(34,36,60)
   }
 
   .weather .futureWeather .hourly-container {
+    position: relative;
+    bottom: 5px;
     font-size: 12px;
   }
 
   .weather .futureWeather .hourly-container .hourly-forecast .future-forecast {
-    font-size: 12px;
+    font-size: 11px;
     margin-right: 20px;
   }
 
@@ -402,13 +409,17 @@ rgb(34,36,60)
   .five-day-forecast img {
     width: 20px;
     height: 20px;
-    margin-right: 80px;
+    margin-right: 50px;
   }
 
   .temp-range {
-    width: 100px;
+    width: 150px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  #hourly {
+    height: 180px;
   }
 
   #daily {
@@ -446,9 +457,7 @@ rgb(34,36,60)
   }
 
   #bottom-info {
-    display: block;
-    word-wrap: break-word;
-    font-size: 10px;
+    font-size: 11px;
     margin-top: 65px;
   }
 }

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" href="/icons/weather.webp">
-    <link rel="icon" type="image/png" href="/icons/weather.webp">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/weather.webp">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/weather.webp">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -40,7 +41,10 @@
 
         <div class="futureWeather" id="hourly" style="--width: var(--wth-80); --heigth: var(--hgt-200); --margin: var(--mrg-3)">  
             <div class="hourly-container">
-                <h3 class="weather-msg">Hourly Forecast</h3>
+                <div class="container-title">
+                    <img id="box-img" src="https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/icons/Time.png" alt="time">
+                    <h3 class="weather-msg">Hourly Forecast</h3>
+                </div>
                 <hr id=line01>
     
                 <div class="hourly-forecast"></div>
@@ -50,7 +54,10 @@
         <div class="futureWeather" id="daily" style="--width: var(--wth-80); --heigth: var(--hgt-500); --margin: var(--mrg-3)">
 
             <div class="daily-container">
-                <h3 class="weather-msg">5-DAY FORECAST</h3>
+                <div class="container-title">
+                    <img id="box-img" src="https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/icons/Calendar.png" alt="calendar">
+                    <h3 class="weather-msg">5-DAY FORECAST</h3>
+                </div>
                 <hr style="width: 100%">
     
                 <div class="daily-forecast"></div>
@@ -99,7 +106,9 @@
                 <img id="box-img" src="icons/Pressure.png" alt="Pressure" class="pressure">
                 <div class="boxTitle">PRESSURE</div>
                 <div class="info-container">
-                    <div class="hPa" id="box-content"></div>
+                    <div id="box-content">
+                        <p class="hPa"></p>
+                    </div>
                     <!-- <div class="middle-info">
                         <i class="fa-solid fa-arrow-down" style="font-size: 50px"></i>
                         <div class="hPa" id="box-content"></div>
@@ -114,7 +123,9 @@
                 <div class="boxTitle">SUNSET</div>
                 <div class="info-container">
                     <div class="sunsetTime" id="box-content"></div>
-                    <div class="sunriseTime" id="bottom-info"></div>
+                    <div id="bottom-info">
+                        <p class="sunriseTime"></p>
+                    </div>
                 </div>
             </div>
             <!-- <div class="futureWeather" style="--width: var(--wth-150); --heigth: var(--hgt-300); --margin: var(--mrg-1)"> </div>
