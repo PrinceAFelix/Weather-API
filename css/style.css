@@ -158,11 +158,18 @@ body {
 
 .container-title {
   display: flex;
-  position: relative;
+  margin-bottom: -10px;
+}
+hr {
+  opacity: 0.5;
+  margin: 15px 0px 15px 0px;
 }
 
 #daily {
-  height: 500px;
+  height: 450px;
+}
+#hourly {
+  height: 240px;
 }
 
 #lowTemp {
@@ -190,6 +197,8 @@ body {
   border-radius: 25px;
   background-image: linear-gradient(to right, cyan, green, yellow, orange);
   position: relative;
+  margin-left: -150px;
+  margin-right: -150px;
 }
 
 .boxTitle {
@@ -251,7 +260,10 @@ body {
 }
 
 .weather-msg {
+  opacity: 0.5;
   color: white;
+  position: relative;
+  top: 10px;
 }
 
 /*** LINE ***/
@@ -423,7 +435,7 @@ rgb(34,36,60)
   }
 
   #daily {
-    height: 400px;
+    height: 330px;
   }
 
   .weather .container {
@@ -459,5 +471,14 @@ rgb(34,36,60)
   #bottom-info {
     font-size: 11px;
     margin-top: 65px;
+  }
+
+  .weather-msg {
+    transform: translateY(-8px);
+  }
+
+  .container-title #box-img {
+    opacity: 0.3;
+    width: 25px;
   }
 }

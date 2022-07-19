@@ -237,11 +237,11 @@ const main = {
             div.innerHTML = `<h3 class="day-label">${day}</h3>`
             div.appendChild(createWeatherIcon(index == 0 ? iconAvg[0] : item))
             div.innerHTML = 
-            div.innerHTML + `<h3 id="lowTemp">${low[index]}&#176;</h3><div class="temp-range"></div><h3id="highTemp">${high[index]}&#176;</h3>`
+            div.innerHTML + `<h3 id="lowTemp">${low[index]}&#176;</h3><div class="temp-range"></div><h3 id="highTemp">${high[index]}&#176;</h3>`
             daily.append(div);
             let lineDiv = document.createElement('div')
             lineDiv.innerHTML = `<hr style="width: 100%">`
-            div.after(lineDiv)
+            if(index != iconAvg.length - 1) div.after(lineDiv)
             
         })
         low = []
