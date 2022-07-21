@@ -14,11 +14,13 @@ let low = [], high = []
 
 let tempNow = '', descNow = ''
 
+
 const main = {
     locKey: 'pk.6eff11d2dd5c4fbf4f82d3ed41476434',
     init: () =>{
-        main.getCoor()
         
+        main.getCoor()
+
         document.getElementById('search-form')
         .addEventListener('submit', async function (ev) {
             ev.preventDefault()
@@ -47,7 +49,6 @@ const main = {
         }catch(e){
             console.log(e.message)
         }
-       
     },
     fetchFutureWeather: async (lat, lon) =>{
         const data = await getFutureWeather(lat, lon);
@@ -100,13 +101,6 @@ const main = {
         for (let i = 0; i < desc.length; i++) {
             desc[i] = desc[i][0].toUpperCase() + desc[i].substr(1);
         }
-
-        
-
-
-
-
-        
         document.querySelector(".city").innerHTML = name;
         document.querySelector(".temp").innerHTML = celciusTemp + '&#176;';
         document.querySelector(".description").innerHTML = desc.join(" ");;
@@ -132,13 +126,16 @@ const main = {
 
 
         let hourly =  document.querySelector(".hourly-forecast");
+
         if (hourly.querySelector('div')) {
             hourly.querySelectorAll('div').forEach(div => div.remove())
         }
         let div = document.createElement('div')
         div.className = 'future-forecast'
         div.innerHTML = `<h3>Now</h3>`
+        
         if (div.querySelector('img')) div.querySelector('img').remove()
+
         div.appendChild(createWeatherIcon(descNow))
         div.innerHTML = 
         div.innerHTML + `<h3>${tempNow}&#176;</h3>`
@@ -149,7 +146,6 @@ const main = {
         
         var addOnce = true, showCurrent = false;
 
-        //item.main.temp
         data.list.forEach((item, index) => {
             var dt = new Date(item.dt * 1000);
             time = this.convertTime(dt, true);
@@ -182,17 +178,12 @@ const main = {
             if(time.includes("2PM") && dt.getDay() == today) {
                 iconAvg.push(weatherIconSRC)
                 addOnce = false
-                
-
             }
             if(time.includes("2PM") && dt.getDay() != today){
-                if(addOnce) iconAvg.push(descNow)
+                if(addOnce) iconAvg.push(descNow == "Mist" ? "Fog" : descNow)
                 iconAvg.push(weatherIconSRC)
                 addOnce = false
             }
-
-
-
 
             if(index <= 20){
                 div.innerHTML = `<h3>${time}</h3>`
@@ -201,39 +192,50 @@ const main = {
                 div.innerHTML = 
                 div.innerHTML + `<h3>${Math.round(item.main.temp - 273.15)}&#176;</h3>`
                 hourly.append(div);
-    
             }
-            if(time.includes("2AM")) isDayPassed = true;
 
+            if(time.includes("2AM")) isDayPassed = true;
+            
             if(isDayPassed && counter != 8){
                 avg.push(Math.round(item.main.temp - 273.15))
                 counter++;
-                if(counter == 8){
+                if(counter == 8 || index == 39){
                     counter = 0
                     isDayPassed = false;
                     main.quickSort(avg, 0, avg.length - 1)
+                    // debugger;
                     low.push(Math.min(...avg))
                     high.push(Math.max(...avg))
                     avg = []
                 }
-    
             }
-
         })
-
-
-
 
         var minus = today
         let isPassed = false;
         let daily =  document.querySelector(".daily-forecast");
+
         if (daily.querySelector('div')) daily.querySelectorAll('div').forEach(div => div.remove())
+
+        var root = document.querySelector(':root');
+        var rootStyles = getComputedStyle(root);
+        var heigth = rootStyles.getPropertyValue('--dailyWeatherHeight');
+        var hgt = rootStyles.getPropertyValue('--hgt-530');
+        if(iconAvg.length == 5){
+            root.style.setProperty('--dailyWeatherHeight', '330px');
+            root.style.setProperty('--hgt-530', '450px');
+        }else{
+            root.style.setProperty('--dailyWeatherHeight', '380px');
+            root.style.setProperty('--hgt-530', '530px');
+        }
         iconAvg.forEach((item, index) => {
+
             let div = document.createElement('div');
             div.className = 'five-day-forecast'
             let day = index == 0 ? 'Today' : days[isPassed ? (today - minus--) : today + index];
-            // console.log(today + "+" + index + " = " + (today+index) + " = " + days[today +index])
-            if(today >= 3 && days[today + index] == 'Sunday' || today == 0 )isPassed = true;
+            
+            if(today >= 3 && days[today + index] == 'Sunday' || today == 0 || (today + index) > 5 )isPassed = true;
+           
             div.innerHTML = `<h3 class="day-label">${day}</h3>`
             div.appendChild(createWeatherIcon(index == 0 ? iconAvg[0] : item))
             div.innerHTML = 
@@ -241,13 +243,14 @@ const main = {
             daily.append(div);
             let lineDiv = document.createElement('div')
             lineDiv.innerHTML = `<hr style="width: 100%">`
-            if(index != iconAvg.length - 1) div.after(lineDiv)
+            
+            if(index != (iconAvg.length-1)) div.after(lineDiv)
+            
+            
             
         })
         low = []
         high = []
-        
-
     },
     getLatLon: async (data) => {
         const { lat, lon} = data[0]
@@ -348,19 +351,12 @@ const main = {
 
         return;
     },
-    getWeatherState: function () {
-
-    },
     quickSort: (array, start, end) => {
-        
-
 		//Check if the right side is less or equal than the left side
 		if (start >= end) {
 		
 			return;
 		}
-			
-		
 		//Set all the needed values
 		let pivot = start, left = start + 1, right = end;
 		
@@ -382,7 +378,6 @@ const main = {
 			}
 			
 		}
-		
 		if (array[left] > array[pivot]) {
 			//Move the pivot and call recursively
 			let temp = array[pivot];
@@ -400,11 +395,8 @@ const main = {
 			main.quickSort(array, left+1, end);
 		
 		}
-
     },
-
-
-
 }
+
 
 document.addEventListener('DOMContentLoaded', main.init)

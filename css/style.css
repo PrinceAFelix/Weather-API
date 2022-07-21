@@ -110,15 +110,17 @@ body {
 
 :root {
   --hgt-200: 200px;
-  --hgt-300: 400px;
-  --hgt-500: 500px;
+  --hgt-400: 400px;
+  --hgt-530: 530px;
+
   --wth-80: 80%;
   --wth-150: 400px;
   --mrg-3: 3%;
   --mrg-1: 1%;
-
   --lft-15: -15%;
   --lft-45: 45%;
+
+  --dailyWeatherHeight: 380px;
 }
 
 .weather .futureWeather {
@@ -166,7 +168,7 @@ hr {
 }
 
 #daily {
-  height: 450px;
+  margin-bottom: 50px;
 }
 #hourly {
   height: 240px;
@@ -268,7 +270,7 @@ hr {
 
 /*** LINE ***/
 #line01 {
-  width: 155%;
+  width: 160%;
 }
 
 /** BACKGROUND **/
@@ -294,12 +296,11 @@ hr {
 }
 
 [state="drain"] {
-  background: rgb(33, 117, 179)
-    url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/rain-clouds.png")
-    bottom center repeat-x;
-  animation: clouds 1000s linear infinite;
-  background-position: center;
-  background-size: auto 800px;
+  background-color: rgb(34, 36, 60);
+  background: url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/rain.png");
+  animation: rain 0.3s linear infinite;
+  background-repeat: repeat-y, repeat-x;
+  background-size: auto, auto 1080px;
 }
 
 [state="dfog"] {
@@ -339,8 +340,8 @@ rgb(34,36,60)
   background-color: rgb(34, 36, 60);
   background: url("https://raw.githubusercontent.com/PrinceAFelix/Weather-API/master/themes/rain.png");
   animation: rain 0.3s linear infinite;
-  background-repeat: repeat-y;
-  background-size: 3033px 1640px;
+  background-repeat: repeat-y, repeat-x;
+  background-size: auto, auto 1080px;
 }
 
 [state="nfog"] {
@@ -405,10 +406,6 @@ rgb(34,36,60)
     margin-right: 20px;
   }
 
-  #line01 {
-    width: 425%;
-  }
-
   .weather .futureWeather .daily-container {
     font-size: 12px;
   }
@@ -435,7 +432,8 @@ rgb(34,36,60)
   }
 
   #daily {
-    height: 330px;
+    height: var(--dailyWeatherHeight);
+    margin-bottom: 10px;
   }
 
   .weather .container {
@@ -480,5 +478,17 @@ rgb(34,36,60)
   .container-title #box-img {
     opacity: 0.3;
     width: 25px;
+  }
+
+  #line01 {
+    width: 425%;
+  }
+
+  [state="nrain"] {
+    background-size: 430px 1000px;
+  }
+
+  [state="drain"] {
+    background-size: 430px 1000px;
   }
 }
