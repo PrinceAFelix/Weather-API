@@ -1,7 +1,7 @@
 'use strict'
 import {Sun, Weather} from './sun-model.js'
 import {getCurrentWeather, getFutureWeather, getCityCoordinates, createWeatherIcon} from './weather-api-service.js'
-
+import {logCredits} from './credits.js'
 var sunsetDt;
 var sunriseDt;
 var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -21,9 +21,8 @@ let timeNow = new Date().getHours()
 const main = {
     locKey: 'pk.6eff11d2dd5c4fbf4f82d3ed41476434',
     init: () =>{
-
+        logCredits();
         main.getCoor()
-
         document.getElementById('search-form')
         .addEventListener('submit', async function (ev) {
             ev.preventDefault()
@@ -192,7 +191,6 @@ const main = {
             }
 
 
-            console.log(sun.SunriseTime)
             if(i <= 20){
                 div.innerHTML = `<h3>${time}</h3>`
                 if (div.querySelector('img')) div.querySelector('img').remove()
