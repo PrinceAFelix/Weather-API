@@ -370,6 +370,9 @@ rgb(34,36,60)
     background-position: 0% 100%;
   }
 }
+
+
+
 @media all and (max-width: 430px) {
   .weather .searchContainer .searchField {
     width: 300px;
@@ -490,5 +493,21 @@ rgb(34,36,60)
 
   [state="drain"] {
     background-size: 430px 1000px;
+  }
+}
+
+@media all and (max-width: 375px) {
+
+  #line01 {
+    width: 480%;
+  }
+
+  .weather .searchContainer .searchField {
+    width: 250px;
+  }
+
+  .weather .container #infoBox {
+    width: 163px;
+    height: 157px;
   }
 }

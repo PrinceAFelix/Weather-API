@@ -14,11 +14,14 @@ let low = [], high = []
 
 let tempNow = '', descNow = ''
 
+let timeNow = new Date().getHours()
+
+
 
 const main = {
     locKey: 'pk.6eff11d2dd5c4fbf4f82d3ed41476434',
     init: () =>{
-        
+
         main.getCoor()
 
         document.getElementById('search-form')
@@ -121,6 +124,7 @@ const main = {
         let weatherIconSRC = "";
         var time;
         var mainDesc = "";
+
         
         var sun = new Sun(sunsetDt.getHours() % 12, sunriseDt.getHours() % 12);
 
@@ -136,7 +140,7 @@ const main = {
         
         if (div.querySelector('img')) div.querySelector('img').remove()
 
-        div.appendChild(createWeatherIcon(descNow))
+        div.appendChild(createWeatherIcon(timeNow >= 12 && descNow == 'Clear' ? 'Clear-night' : descNow))
         div.innerHTML = 
         div.innerHTML + `<h3>${tempNow}&#176;</h3>`
         hourly.append(div)
@@ -146,13 +150,15 @@ const main = {
         
         var addOnce = true, showCurrent = false;
 
-        data.list.forEach((item, index) => {
-            var dt = new Date(item.dt * 1000);
+        var showSunset = false, showSunrise = false
+
+        for(var i = 0; i < data.list.length; i++){
+            var dt = new Date(data.list[i].dt * 1000);
             time = this.convertTime(dt, true);
             let div = document.createElement('div');
             div.className = 'future-forecast'
             var wholeNumberTime = time.replace(/\D/g, "");
-            mainDesc = item.weather[0].main;
+            mainDesc = data.list[i].weather[0].main;
 
 
             if(time.includes("PM") &&  wholeNumberTime >= sun.sunset || time.includes("AM") && wholeNumberTime <= sun.sunrise){
@@ -185,21 +191,23 @@ const main = {
                 addOnce = false
             }
 
-            if(index <= 20){
+
+            console.log(sun.SunriseTime)
+            if(i <= 20){
                 div.innerHTML = `<h3>${time}</h3>`
                 if (div.querySelector('img')) div.querySelector('img').remove()
                 div.appendChild(createWeatherIcon(weatherIconSRC))
                 div.innerHTML = 
-                div.innerHTML + `<h3>${Math.round(item.main.temp - 273.15)}&#176;</h3>`
+                div.innerHTML + `<h3>${Math.round(data.list[i].main.temp - 273.15)}&#176;</h3>`
                 hourly.append(div);
             }
 
             if(time.includes("2AM")) isDayPassed = true;
             
             if(isDayPassed && counter != 8){
-                avg.push(Math.round(item.main.temp - 273.15))
+                avg.push(Math.round(data.list[i].main.temp - 273.15))
                 counter++;
-                if(counter == 8 || index == 39){
+                if(counter == 8 || i == 39){
                     counter = 0
                     isDayPassed = false;
                     main.quickSort(avg, 0, avg.length - 1)
@@ -209,7 +217,7 @@ const main = {
                     avg = []
                 }
             }
-        })
+        }
 
         var minus = today
         let isPassed = false;
